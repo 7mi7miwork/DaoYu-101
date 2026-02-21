@@ -1,0 +1,121 @@
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
+
+const Navbar = () => {
+  const { theme, changeTheme } = useTheme();
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
+
+  return (
+    <nav className="border-b" style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link 
+            to="/" 
+            className="text-xl font-bold"
+            style={{ color: 'var(--color-primary)', fontFamily: 'var(--font-display)' }}
+          >
+            🏝️ Dao-Yu-101
+          </Link>
+
+          {/* Navigation Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              to="/"
+              className={`font-medium transition-colors ${isActive('/') ? 'text-primary' : ''}`}
+              style={{ 
+                color: isActive('/') ? 'var(--color-primary)' : 'var(--color-text)',
+                fontFamily: 'var(--font-primary)'
+              }}
+            >
+              {/* t('nav.home') */}
+              Home
+            </Link>
+            <Link
+              to="/courses"
+              className={`font-medium transition-colors ${isActive('/courses') ? 'text-primary' : ''}`}
+              style={{ 
+                color: isActive('/courses') ? 'var(--color-primary)' : 'var(--color-text)',
+                fontFamily: 'var(--font-primary)'
+              }}
+            >
+              {/* t('nav.courses') */}
+              Courses
+            </Link>
+            <Link
+              to="/login"
+              className={`font-medium transition-colors ${isActive('/login') ? 'text-primary' : ''}`}
+              style={{ 
+                color: isActive('/login') ? 'var(--color-primary)' : 'var(--color-text)',
+                fontFamily: 'var(--font-primary)'
+              }}
+            >
+              {/* t('nav.login') */}
+              Login
+            </Link>
+          </div>
+
+          {/* Theme Switcher and Language Placeholder */}
+          <div className="flex items-center space-x-4">
+            {/* Theme Buttons */}
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => changeTheme('archipelago')}
+                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                  theme === 'archipelago' ? 'ring-2' : ''
+                }`}
+                style={{ 
+                  backgroundColor: theme === 'archipelago' ? '#2d5a1b' : 'transparent',
+                  color: theme === 'archipelago' ? 'white' : 'var(--color-text)',
+                  ringColor: theme === 'archipelago' ? '#2d5a1b' : 'transparent'
+                }}
+                title="Archipelago Theme"
+              >
+                🌿
+              </button>
+              <button
+                onClick={() => changeTheme('modern')}
+                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                  theme === 'modern' ? 'ring-2' : ''
+                }`}
+                style={{ 
+                  backgroundColor: theme === 'modern' ? '#4f46e5' : 'transparent',
+                  color: theme === 'modern' ? 'white' : 'var(--color-text)',
+                  ringColor: theme === 'modern' ? '#4f46e5' : 'transparent'
+                }}
+                title="Modern Theme"
+              >
+                ⚡
+              </button>
+              <button
+                onClick={() => changeTheme('dark')}
+                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
+                  theme === 'dark' ? 'ring-2' : ''
+                }`}
+                style={{ 
+                  backgroundColor: theme === 'dark' ? '#7c3aed' : 'transparent',
+                  color: theme === 'dark' ? 'white' : 'var(--color-text)',
+                  ringColor: theme === 'dark' ? '#7c3aed' : 'transparent'
+                }}
+                title="Dark Theme"
+              >
+                🌙
+              </button>
+            </div>
+
+            {/* Language Placeholder */}
+            <div className="flex items-center space-x-1 text-sm" style={{ color: 'var(--color-text-muted)' }}>
+              <span>🌐</span>
+              <span>EN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

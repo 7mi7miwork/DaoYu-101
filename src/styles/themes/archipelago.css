@@ -1,0 +1,17 @@
+.theme-archipelago {
+  --color-primary: #2d5a1b;
+  --color-secondary: #8b6914;
+  --color-bg: #f8faf5;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --font-primary: system-ui, -apple-system, sans-serif;
+  --font-display: Georgia, serif;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}
