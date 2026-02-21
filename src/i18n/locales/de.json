@@ -74,20 +74,52 @@
     "error": "Fehler",
     "back": "Zurück"
   },
+  "archipelagos": {
+    "programming": {
+      "title": "Programmierung",
+      "description": "Lerne von Grund auf zu programmieren"
+    },
+    "languages": {
+      "title": "Sprachen",
+      "description": "Sprich die Welt"
+    },
+    "finance": {
+      "title": "Finanzen",
+      "description": "Geldkenntnisse meistern"
+    },
+    "schoolSubjects": {
+      "title": "Schulfächer",
+      "description": "Kernlehrplan"
+    }
+  },
+  "islands": {
+    "pythonBasics": "Python Grundlagen",
+    "webDev": "Web Entwicklung",
+    "englishBeginners": "Englisch Anfänger",
+    "spanishA1": "Spanisch A1",
+    "chineseBasics": "Chinesisch Grundlagen",
+    "budgeting101": "Budgetierung 101",
+    "investingSimulator": "Investitions-Simulator",
+    "mathGrade5": "Mathe Klasse 5",
+    "scienceBasics": "Naturwissenschaften"
+  },
   "worldmap": {
     "title": "Wähle dein Archipel",
     "subtitle": "Wähle ein Archipel, um deine Lernreise zu beginnen. Jede Insel stellt eine neue zu meisternde Fähigkeit dar!",
     "progress": "Fortschritt",
+    "locked": "Gesperrt",
+    "startLearning": "Lernen starten",
+    "islandCount": "{{count}} Inseln",
     "islands": {
-      "pythonBasics": "Python-Grundlagen",
-      "webDev": "Web-Entwicklung",
-      "englishBeginners": "Englisch für Anfänger",
+      "pythonBasics": "Python Grundlagen",
+      "webDev": "Web Entwicklung",
+      "englishBeginners": "Englisch Anfänger",
       "spanishA1": "Spanisch A1",
-      "chineseBasics": "Chinesisch-Grundlagen",
+      "chineseBasics": "Chinesisch Grundlagen",
       "budgeting101": "Budgetierung 101",
       "investingSimulator": "Investitions-Simulator",
-      "mathGrade5": "Mathematik 5. Klasse",
-      "scienceBasics": "Naturwissenschaft-Grundlagen"
+      "mathGrade5": "Mathe Klasse 5",
+      "scienceBasics": "Naturwissenschaften"
     }
   }
 }

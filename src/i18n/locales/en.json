@@ -74,10 +74,42 @@
     "error": "Error",
     "back": "Back"
   },
+  "archipelagos": {
+    "programming": {
+      "title": "Programming",
+      "description": "Learn to code from scratch"
+    },
+    "languages": {
+      "title": "Languages",
+      "description": "Speak the world"
+    },
+    "finance": {
+      "title": "Finance",
+      "description": "Master money skills"
+    },
+    "schoolSubjects": {
+      "title": "School Subjects",
+      "description": "Core school curriculum"
+    }
+  },
+  "islands": {
+    "pythonBasics": "Python Basics",
+    "webDev": "Web Dev",
+    "englishBeginners": "English Beginners",
+    "spanishA1": "Spanish A1",
+    "chineseBasics": "Chinese Basics",
+    "budgeting101": "Budgeting 101",
+    "investingSimulator": "Investing Simulator",
+    "mathGrade5": "Math Grade 5",
+    "scienceBasics": "Science Basics"
+  },
   "worldmap": {
     "title": "Choose Your Archipelago",
     "subtitle": "Select an archipelago to start your learning journey. Each island represents a new skill to master!",
     "progress": "Progress",
+    "locked": "Locked",
+    "startLearning": "Start Learning",
+    "islandCount": "{{count}} Islands",
     "islands": {
       "pythonBasics": "Python Basics",
       "webDev": "Web Dev",

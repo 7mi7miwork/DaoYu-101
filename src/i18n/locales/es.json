@@ -74,10 +74,42 @@
     "error": "Error",
     "back": "Atrás"
   },
+  "archipelagos": {
+    "programming": {
+      "title": "Programación",
+      "description": "Aprende a programar desde cero"
+    },
+    "languages": {
+      "title": "Idiomas",
+      "description": "Habla el mundo"
+    },
+    "finance": {
+      "title": "Finanzas",
+      "description": "Domina las habilidades con el dinero"
+    },
+    "schoolSubjects": {
+      "title": "Asignaturas escolares",
+      "description": "Currículo básico"
+    }
+  },
+  "islands": {
+    "pythonBasics": "Conceptos básicos de Python",
+    "webDev": "Desarrollo Web",
+    "englishBeginners": "Inglés para principiantes",
+    "spanishA1": "Español A1",
+    "chineseBasics": "Conceptos básicos de chino",
+    "budgeting101": "Presupuesto 101",
+    "investingSimulator": "Simulador de inversión",
+    "mathGrade5": "Matemáticas 5º grado",
+    "scienceBasics": "Conceptos básicos de ciencias"
+  },
   "worldmap": {
     "title": "Elige tu Archipiélago",
     "subtitle": "Selecciona un archipiélago para comenzar tu viaje de aprendizaje. ¡Cada isla representa una nueva habilidad para dominar!",
     "progress": "Progreso",
+    "locked": "Bloqueado",
+    "startLearning": "Comenzar a aprender",
+    "islandCount": "{{count}} Islas",
     "islands": {
       "pythonBasics": "Conceptos básicos de Python",
       "webDev": "Desarrollo Web",

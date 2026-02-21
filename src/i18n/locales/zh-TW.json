@@ -74,10 +74,42 @@
     "error": "錯誤",
     "back": "返回"
   },
+  "archipelagos": {
+    "programming": {
+      "title": "程式設計",
+      "description": "從零開始學習寫程式"
+    },
+    "languages": {
+      "title": "語言",
+      "description": "說遍全世界"
+    },
+    "finance": {
+      "title": "金融",
+      "description": "掌握金錢技能"
+    },
+    "schoolSubjects": {
+      "title": "學校科目",
+      "description": "核心課程"
+    }
+  },
+  "islands": {
+    "pythonBasics": "Python 基礎",
+    "webDev": "網頁開發",
+    "englishBeginners": "英語初學者",
+    "spanishA1": "西班牙語 A1",
+    "chineseBasics": "中文基礎",
+    "budgeting101": "預算規劃 101",
+    "investingSimulator": "投資模擬器",
+    "mathGrade5": "五年級數學",
+    "scienceBasics": "科學基礎"
+  },
   "worldmap": {
     "title": "選擇您的群島",
     "subtitle": "選擇一個群島開始您的學習之旅。每個島嶼代表一個需要掌握的新技能！",
     "progress": "進度",
+    "locked": "已鎖定",
+    "startLearning": "開始學習",
+    "islandCount": "{{count}} 個島嶼",
     "islands": {
       "pythonBasics": "Python 基礎",
       "webDev": "網頁開發",
