@@ -73,5 +73,21 @@
     "loading": "Laden...",
     "error": "Fehler",
     "back": "Zurück"
+  },
+  "worldmap": {
+    "title": "Wähle dein Archipel",
+    "subtitle": "Wähle ein Archipel, um deine Lernreise zu beginnen. Jede Insel stellt eine neue zu meisternde Fähigkeit dar!",
+    "progress": "Fortschritt",
+    "islands": {
+      "pythonBasics": "Python-Grundlagen",
+      "webDev": "Web-Entwicklung",
+      "englishBeginners": "Englisch für Anfänger",
+      "spanishA1": "Spanisch A1",
+      "chineseBasics": "Chinesisch-Grundlagen",
+      "budgeting101": "Budgetierung 101",
+      "investingSimulator": "Investitions-Simulator",
+      "mathGrade5": "Mathematik 5. Klasse",
+      "scienceBasics": "Naturwissenschaft-Grundlagen"
+    }
   }
 }

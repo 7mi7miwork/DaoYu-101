@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import IslandNode from './IslandNode';
 
 const ArchipelagoCard = ({ archipelago }) => {
+  const { t } = useTranslation();
   const unlockedCount = archipelago.islands.filter(island => island.unlocked).length;
   const totalCount = archipelago.islands.length;
   const progressPercentage = (unlockedCount / totalCount) * 100;
@@ -23,13 +25,13 @@ const ArchipelagoCard = ({ archipelago }) => {
             className="text-xl font-bold"
             style={{ color: archipelago.color }}
           >
-            {archipelago.title}
+            {t(archipelago.titleKey)}
           </h3>
           <p 
             className="text-sm"
             style={{ color: 'var(--color-text-muted)' }}
           >
-            {archipelago.description}
+            {t(archipelago.descriptionKey)}
           </p>
         </div>
       </div>
@@ -48,7 +50,7 @@ const ArchipelagoCard = ({ archipelago }) => {
             className="text-sm font-medium"
             style={{ color: 'var(--color-text)' }}
           >
-            Progress
+            {t('worldmap.progress')}
           </span>
           <span 
             className="text-sm"

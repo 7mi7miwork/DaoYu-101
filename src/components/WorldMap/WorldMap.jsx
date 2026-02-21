@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import archipelagosData from '../../data/archipelagos';
 import ArchipelagoCard from './ArchipelagoCard';
 
 const WorldMap = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="container mx-auto px-4 py-8">
@@ -15,13 +18,13 @@ const WorldMap = () => {
               fontFamily: 'var(--font-display)'
             }}
           >
-            🏝️ Choose Your Archipelago
+            🏝️ {t('worldmap.title')}
           </h1>
           <p 
             className="text-lg max-w-2xl mx-auto"
             style={{ color: 'var(--color-text-muted)' }}
           >
-            Select an archipelago to start your learning journey. Each island represents a new skill to master!
+            {t('worldmap.subtitle')}
           </p>
         </div>
 

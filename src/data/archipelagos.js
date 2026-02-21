@@ -1,47 +1,47 @@
 export default [
   {
     id: "programming",
-    title: "Programming",
+    titleKey: "archipelagos.programming.title",
     color: "#4F46E5",
     icon: "💻",
-    description: "Learn to code from scratch",
+    descriptionKey: "archipelagos.programming.description",
     islands: [
-      { id: "python-basics", title: "Python Basics", unlocked: true },
-      { id: "web-dev", title: "Web Dev", unlocked: false }
+      { id: "python-basics", titleKey: "worldmap.islands.pythonBasics", unlocked: true },
+      { id: "web-dev", titleKey: "worldmap.islands.webDev", unlocked: false }
     ]
   },
   {
     id: "languages",
-    title: "Languages",
+    titleKey: "archipelagos.languages.title",
     color: "#059669",
     icon: "🌐",
-    description: "Speak the world",
+    descriptionKey: "archipelagos.languages.description",
     islands: [
-      { id: "english-beginners", title: "English Beginners", unlocked: true },
-      { id: "spanish-a1", title: "Spanish A1", unlocked: false },
-      { id: "chinese-basics", title: "Chinese Basics", unlocked: false }
+      { id: "english-beginners", titleKey: "worldmap.islands.englishBeginners", unlocked: true },
+      { id: "spanish-a1", titleKey: "worldmap.islands.spanishA1", unlocked: false },
+      { id: "chinese-basics", titleKey: "worldmap.islands.chineseBasics", unlocked: false }
     ]
   },
   {
     id: "finance",
-    title: "Finance",
+    titleKey: "archipelagos.finance.title",
     color: "#D97706",
     icon: "💰",
-    description: "Master money skills",
+    descriptionKey: "archipelagos.finance.description",
     islands: [
-      { id: "budgeting-101", title: "Budgeting 101", unlocked: true },
-      { id: "investing-simulator", title: "Investing Simulator", unlocked: false }
+      { id: "budgeting-101", titleKey: "worldmap.islands.budgeting101", unlocked: true },
+      { id: "investing-simulator", titleKey: "worldmap.islands.investingSimulator", unlocked: false }
     ]
   },
   {
     id: "school-subjects",
-    title: "School Subjects",
+    titleKey: "archipelagos.schoolSubjects.title",
     color: "#DC2626",
     icon: "📚",
-    description: "Core school curriculum",
+    descriptionKey: "archipelagos.schoolSubjects.description",
     islands: [
-      { id: "math-grade-5", title: "Math Grade 5", unlocked: true },
-      { id: "science-basics", title: "Science Basics", unlocked: false }
+      { id: "math-grade-5", titleKey: "worldmap.islands.mathGrade5", unlocked: true },
+      { id: "science-basics", titleKey: "worldmap.islands.scienceBasics", unlocked: false }
     ]
   }
 ];
