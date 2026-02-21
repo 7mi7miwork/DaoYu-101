@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { supabase } from '../lib/supabase';
 
 export const AuthContext = createContext();
 
@@ -6,47 +7,70 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Load user from localStorage on mount
   useEffect(() => {
-    const loadUser = () => {
-      try {
-        const storedAuth = localStorage.getItem('dao-yu-auth');
-        if (storedAuth) {
-          const parsedUser = JSON.parse(storedAuth);
-          setUser(parsedUser);
-        }
-      } catch (error) {
-        console.error('Failed to parse stored auth data:', error);
-        localStorage.removeItem('dao-yu-auth');
-      } finally {
-        setIsLoading(false);
-      }
+    // Get initial session
+    const getInitialSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+      setIsLoading(false);
     };
 
-    loadUser();
+    getInitialSession();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user ?? null);
+        setIsLoading(false);
+      }
+    );
+
+    return () => subscription.unsubscribe();
   }, []);
 
-  const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem('dao-yu-auth', JSON.stringify(userData));
+  const login = async (email, password) => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('dao-yu-auth');
+  const register = async (email, password, options = {}) => {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: options,
+      },
+    });
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
   };
 
-  const register = (userData) => {
-    // Mock registration - same as login for now
-    login(userData);
+  const logout = async () => {
+    const { error } = await supabase.auth.signOut();
+    
+    if (error) {
+      throw error;
+    }
   };
 
   const value = {
     user,
     isLoading,
     login,
+    register,
     logout,
-    register
   };
 
   return (

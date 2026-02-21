@@ -1,16 +1,28 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import XPBar from './XPBar';
 import StreakCounter from './StreakCounter';
 
 const Navbar = () => {
   const { theme, changeTheme } = useTheme();
+  const { user, logout } = useAuth();
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path) => location.pathname === path;
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
 
   return (
     <nav className="border-b" style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}>
@@ -53,16 +65,41 @@ const Navbar = () => {
             >
               {t('nav.courses')}
             </Link>
-            <Link
-              to="/login"
-              className={`font-medium transition-colors ${isActive('/login') ? 'text-primary' : ''}`}
-              style={{ 
-                color: isActive('/login') ? 'var(--color-primary)' : 'var(--color-text)',
-                fontFamily: 'var(--font-primary)'
-              }}
-            >
-              {t('nav.login')}
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  to="/dashboard"
+                  className={`font-medium transition-colors ${isActive('/dashboard') ? 'text-primary' : ''}`}
+                  style={{ 
+                    color: isActive('/dashboard') ? 'var(--color-primary)' : 'var(--color-text)',
+                    fontFamily: 'var(--font-primary)'
+                  }}
+                >
+                  {t('nav.dashboard')}
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="font-medium transition-colors"
+                  style={{ 
+                    color: 'var(--color-text)',
+                    fontFamily: 'var(--font-primary)'
+                  }}
+                >
+                  {t('nav.logout')}
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                className={`font-medium transition-colors ${isActive('/login') ? 'text-primary' : ''}`}
+                style={{ 
+                  color: isActive('/login') ? 'var(--color-primary)' : 'var(--color-text)',
+                  fontFamily: 'var(--font-primary)'
+                }}
+              >
+                {t('nav.login')}
+              </Link>
+            )}
           </div>
 
           {/* Theme Switcher and Language Placeholder */}

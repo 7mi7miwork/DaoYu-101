@@ -23,46 +23,41 @@ const Login = () => {
     });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
 
     if (!formData.email || !formData.password) {
-      setError('Please fill in all fields');
+      setError(t('login.errors.fillAllFields'));
       return;
     }
 
-    // Mock login - accept any email/password
-    const userData = {
-      id: Date.now().toString(),
-      email: formData.email,
-      name: formData.email.split('@')[0], // Use email prefix as name
-      role: 'student' // Default role for login
-    };
-
-    login(userData);
-    navigate('/dashboard');
+    try {
+      await login(formData.email, formData.password);
+      navigate('/dashboard');
+    } catch (error) {
+      setError(error.message || t('login.errors.loginFailed'));
+    }
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
 
     if (!formData.name || !formData.email || !formData.password || !formData.role) {
-      setError('Please fill in all fields');
+      setError(t('login.errors.fillAllFields'));
       return;
     }
 
-    // Mock registration
-    const userData = {
-      id: Date.now().toString(),
-      email: formData.email,
-      name: formData.name,
-      role: formData.role
-    };
-
-    register(userData);
-    navigate('/dashboard');
+    try {
+      await register(formData.email, formData.password, {
+        name: formData.name,
+        role: formData.role
+      });
+      navigate('/dashboard');
+    } catch (error) {
+      setError(error.message || t('login.errors.registrationFailed'));
+    }
   };
 
   return (
