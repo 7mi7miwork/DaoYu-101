@@ -121,5 +121,69 @@
       "mathGrade5": "五年級數學",
       "scienceBasics": "科學基礎"
     }
+  },
+  "profile": {
+    "title": "我的個人資料",
+    "subtitle": "管理您的帳戶設定並追蹤您的進度",
+    "totalXP": "總 XP",
+    "completedLessons": "完成的課程",
+    "badges": "徽章",
+    "settings": "設定",
+    "language": "語言",
+    "theme": "主題",
+    "noBadges": "尚未獲得徽章。繼續學習！",
+    "noCompletedLessons": "尚未完成任何課程。開始您的學習之旅！",
+    "certificate": "證書",
+    "certificateDescription": "下載您的成就完成證書。",
+    "certificateCourseName": "Dao-Yu-101 學習計畫",
+    "downloadCertificate": "下載證書"
+  },
+  "leaderboard": {
+    "title": "全球排行榜",
+    "subtitle": "來自世界各地的頂尖學習者",
+    "rank": "排名",
+    "name": "姓名",
+    "level": "等級",
+    "xp": "XP",
+    "streak": "連續天數",
+    "days": "天",
+    "badges": "徽章",
+    "noData": "沒有可用資料",
+    "noDataDescription": "開始學習以出現在排行榜上！",
+    "updateInfo": "排行榜每小時更新一次"
+  },
+  "certificate": {
+    "title": "完成證書",
+    "subtitle": "Dao-Yu-101 學習平台",
+    "thisIsToCertify": "特此證明",
+    "hasCompleted": "已成功完成學習計畫",
+    "totalXP": "總 XP",
+    "level": "等級",
+    "completedLessons": "完成的課程",
+    "badges": "徽章",
+    "earnedBadges": "獲得的徽章",
+    "certificateId": "證書 ID",
+    "issueDate": "發行日期",
+    "memberSince": "會員從",
+    "verificationNote": "此證書可使用證書 ID 在線驗證",
+    "verificationInfo": "這是 Dao-Yu-101 學習平台的官方證書",
+    "download": "下載證書",
+    "backToHome": "回到首頁",
+    "error": "證書錯誤",
+    "noId": "未提供證書 ID",
+    "invalidId": "無效的證書 ID 格式",
+    "expired": "證書已過期",
+    "profileNotFound": "找不到用戶資料",
+    "loadError": "無法載入證書資料"
+  },
+  "badges": {
+    "firststeps": "第一步",
+    "quizmaster": "測驗大師",
+    "onfire": "火力全開"
+  },
+  "themes": {
+    "archipelago": "群島",
+    "modern": "現代",
+    "dark": "深色"
   }
 }

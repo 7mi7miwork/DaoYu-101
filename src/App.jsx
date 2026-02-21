@@ -15,6 +15,9 @@ import ParentDashboard from './pages/dashboards/ParentDashboard';
 import TeacherDashboard from './pages/dashboards/TeacherDashboard';
 import SchoolDashboard from './pages/dashboards/SchoolDashboard';
 import AdminDashboard from './pages/dashboards/AdminDashboard';
+import Profile from './pages/Profile';
+import Leaderboard from './pages/Leaderboard';
+import Certificate from './pages/Certificate';
 import NotFound from './pages/NotFound';
 import './index.css';
 
@@ -33,6 +36,15 @@ function App() {
                   <Route path="/courses/:archipelagoId" element={<Island />} />
                   <Route path="/lesson/:lessonId" element={<Lesson />} />
                   <Route path="/login" element={<Login />} />
+                  
+                  {/* Profile and public routes */}
+                  <Route path="/profile" element={
+                    <ProtectedRoute>
+                      <Profile />
+                    </ProtectedRoute>
+                  } />
+                  <Route path="/leaderboard" element={<Leaderboard />} />
+                  <Route path="/certificate/:id" element={<Certificate />} />
                   
                   {/* Dashboard redirect based on user role */}
                   <Route path="/dashboard" element={<DashboardRedirect />} />

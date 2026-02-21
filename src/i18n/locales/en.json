@@ -121,5 +121,69 @@
       "mathGrade5": "Math Grade 5",
       "scienceBasics": "Science Basics"
     }
+  },
+  "profile": {
+    "title": "My Profile",
+    "subtitle": "Manage your account settings and track your progress",
+    "totalXP": "Total XP",
+    "completedLessons": "Completed Lessons",
+    "badges": "Badges",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "noBadges": "No badges earned yet. Keep learning!",
+    "noCompletedLessons": "No lessons completed yet. Start your learning journey!",
+    "certificate": "Certificate",
+    "certificateDescription": "Download a certificate of completion for your achievements.",
+    "certificateCourseName": "Dao-Yu-101 Learning Program",
+    "downloadCertificate": "Download Certificate"
+  },
+  "leaderboard": {
+    "title": "Global Leaderboard",
+    "subtitle": "Top learners from around the world",
+    "rank": "Rank",
+    "name": "Name",
+    "level": "Level",
+    "xp": "XP",
+    "streak": "Streak",
+    "days": "days",
+    "badges": "Badges",
+    "noData": "No data available",
+    "noDataDescription": "Start learning to appear on the leaderboard!",
+    "updateInfo": "Leaderboard updates every hour"
+  },
+  "certificate": {
+    "title": "Certificate of Completion",
+    "subtitle": "Dao-Yu-101 Learning Platform",
+    "thisIsToCertify": "This is to certify that",
+    "hasCompleted": "has successfully completed the learning program",
+    "totalXP": "Total XP",
+    "level": "Level",
+    "completedLessons": "Completed Lessons",
+    "badges": "Badges",
+    "earnedBadges": "Earned Badges",
+    "certificateId": "Certificate ID",
+    "issueDate": "Issue Date",
+    "memberSince": "Member Since",
+    "verificationNote": "This certificate can be verified online using the certificate ID",
+    "verificationInfo": "This is an official certificate from Dao-Yu-101 Learning Platform",
+    "download": "Download Certificate",
+    "backToHome": "Back to Home",
+    "error": "Certificate Error",
+    "noId": "No certificate ID provided",
+    "invalidId": "Invalid certificate ID format",
+    "expired": "Certificate has expired",
+    "profileNotFound": "User profile not found",
+    "loadError": "Failed to load certificate data"
+  },
+  "badges": {
+    "firststeps": "First Steps",
+    "quizmaster": "Quiz Master",
+    "onfire": "On Fire"
+  },
+  "themes": {
+    "archipelago": "Archipelago",
+    "modern": "Modern",
+    "dark": "Dark"
   }
 }

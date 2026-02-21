@@ -121,5 +121,69 @@
       "mathGrade5": "Matemáticas 5º grado",
       "scienceBasics": "Conceptos básicos de ciencias"
     }
+  },
+  "profile": {
+    "title": "Mi Perfil",
+    "subtitle": "Gestiona la configuración de tu cuenta y sigue tu progreso",
+    "totalXP": "XP Total",
+    "completedLessons": "Lecciones Completadas",
+    "badges": "Insignias",
+    "settings": "Configuración",
+    "language": "Idioma",
+    "theme": "Tema",
+    "noBadges": "Aún no has ganado insignias. ¡Sigue aprendiendo!",
+    "noCompletedLessons": "Aún no has completado lecciones. ¡Comienza tu viaje de aprendizaje!",
+    "certificate": "Certificado",
+    "certificateDescription": "Descarga un certificado de finalización para tus logros.",
+    "certificateCourseName": "Programa de Aprendizaje Dao-Yu-101",
+    "downloadCertificate": "Descargar Certificado"
+  },
+  "leaderboard": {
+    "title": "Tabla de Líderes Global",
+    "subtitle": "Los mejores aprendices de todo el mundo",
+    "rank": "Rango",
+    "name": "Nombre",
+    "level": "Nivel",
+    "xp": "XP",
+    "streak": "Racha",
+    "days": "días",
+    "badges": "Insignias",
+    "noData": "No hay datos disponibles",
+    "noDataDescription": "¡Comienza a aprender para aparecer en la tabla de líderes!",
+    "updateInfo": "La tabla de líderes se actualiza cada hora"
+  },
+  "certificate": {
+    "title": "Certificado de Finalización",
+    "subtitle": "Plataforma de Aprendizaje Dao-Yu-101",
+    "thisIsToCertify": "Por la presente se certifica que",
+    "hasCompleted": "ha completado con éxito el programa de aprendizaje",
+    "totalXP": "XP Total",
+    "level": "Nivel",
+    "completedLessons": "Lecciones Completadas",
+    "badges": "Insignias",
+    "earnedBadges": "Insignias Ganadas",
+    "certificateId": "ID del Certificado",
+    "issueDate": "Fecha de Emisión",
+    "memberSince": "Miembro desde",
+    "verificationNote": "Este certificado puede ser verificado en línea usando el ID del certificado",
+    "verificationInfo": "Este es un certificado oficial de la Plataforma de Aprendizaje Dao-Yu-101",
+    "download": "Descargar Certificado",
+    "backToHome": "Volver al Inicio",
+    "error": "Error de Certificado",
+    "noId": "No se proporcionó ID de certificado",
+    "invalidId": "Formato de ID de certificado inválido",
+    "expired": "El certificado ha expirado",
+    "profileNotFound": "Perfil de usuario no encontrado",
+    "loadError": "No se pudieron cargar los datos del certificado"
+  },
+  "badges": {
+    "firststeps": "Primeros Pasos",
+    "quizmaster": "Maestro del Quiz",
+    "onfire": "En Llamas"
+  },
+  "themes": {
+    "archipelago": "Archipiélago",
+    "modern": "Moderno",
+    "dark": "Oscuro"
   }
 }
