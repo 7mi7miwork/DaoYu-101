@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "courses": "Cursos",
+    "store": "Tienda",
+    "profile": "Perfil",
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión"
+  },
+  "home": {
+    "title": "Bienvenido a Dao-Yu-101",
+    "subtitle": "Tu viaje de aprendizaje personalizado comienza aquí",
+    "startLearning": "Comenzar a aprender"
+  },
+  "courses": {
+    "title": "Cursos",
+    "searchPlaceholder": "Buscar cursos..."
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "back": "Atrás"
+  }
+}

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const { theme, changeTheme } = useTheme();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
@@ -31,8 +33,7 @@ const Navbar = () => {
                 fontFamily: 'var(--font-primary)'
               }}
             >
-              {/* t('nav.home') */}
-              Home
+              {t('nav.home')}
             </Link>
             <Link
               to="/courses"
@@ -42,8 +43,7 @@ const Navbar = () => {
                 fontFamily: 'var(--font-primary)'
               }}
             >
-              {/* t('nav.courses') */}
-              Courses
+              {t('nav.courses')}
             </Link>
             <Link
               to="/login"
@@ -53,8 +53,7 @@ const Navbar = () => {
                 fontFamily: 'var(--font-primary)'
               }}
             >
-              {/* t('nav.login') */}
-              Login
+              {t('nav.login')}
             </Link>
           </div>
 
@@ -106,10 +105,64 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Language Placeholder */}
-            <div className="flex items-center space-x-1 text-sm" style={{ color: 'var(--color-text-muted)' }}>
-              <span>🌐</span>
-              <span>EN</span>
+            {/* Language Switcher */}
+            <div className="flex items-center space-x-1">
+              <button
+                onClick={() => i18n.changeLanguage('en')}
+                className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
+                  i18n.language === 'en' ? 'ring-2' : ''
+                }`}
+                style={{ 
+                  backgroundColor: i18n.language === 'en' ? 'var(--color-primary)' : 'transparent',
+                  color: i18n.language === 'en' ? 'white' : 'var(--color-text)',
+                  ringColor: i18n.language === 'en' ? 'var(--color-primary)' : 'transparent'
+                }}
+                title="English"
+              >
+                🇬🇧 EN
+              </button>
+              <button
+                onClick={() => i18n.changeLanguage('de')}
+                className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
+                  i18n.language === 'de' ? 'ring-2' : ''
+                }`}
+                style={{ 
+                  backgroundColor: i18n.language === 'de' ? 'var(--color-primary)' : 'transparent',
+                  color: i18n.language === 'de' ? 'white' : 'var(--color-text)',
+                  ringColor: i18n.language === 'de' ? 'var(--color-primary)' : 'transparent'
+                }}
+                title="Deutsch"
+              >
+                🇩� DE
+              </button>
+              <button
+                onClick={() => i18n.changeLanguage('es')}
+                className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
+                  i18n.language === 'es' ? 'ring-2' : ''
+                }`}
+                style={{ 
+                  backgroundColor: i18n.language === 'es' ? 'var(--color-primary)' : 'transparent',
+                  color: i18n.language === 'es' ? 'white' : 'var(--color-text)',
+                  ringColor: i18n.language === 'es' ? 'var(--color-primary)' : 'transparent'
+                }}
+                title="Español"
+              >
+                🇪🇸 ES
+              </button>
+              <button
+                onClick={() => i18n.changeLanguage('zh-TW')}
+                className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
+                  i18n.language === 'zh-TW' ? 'ring-2' : ''
+                }`}
+                style={{ 
+                  backgroundColor: i18n.language === 'zh-TW' ? 'var(--color-primary)' : 'transparent',
+                  color: i18n.language === 'zh-TW' ? 'white' : 'var(--color-text)',
+                  ringColor: i18n.language === 'zh-TW' ? 'var(--color-primary)' : 'transparent'
+                }}
+                title="繁體中文"
+              >
+                🇹🇼 ZH
+              </button>
             </div>
           </div>
         </div>

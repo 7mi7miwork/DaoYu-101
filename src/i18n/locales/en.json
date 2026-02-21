@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "store": "Store",
+    "profile": "Profile",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "home": {
+    "title": "Welcome to Dao-Yu-101",
+    "subtitle": "Your personalized learning journey starts here",
+    "startLearning": "Start Learning"
+  },
+  "courses": {
+    "title": "Courses",
+    "searchPlaceholder": "Search courses..."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "back": "Back"
+  }
+}
