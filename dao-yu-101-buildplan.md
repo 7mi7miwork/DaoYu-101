@@ -146,7 +146,28 @@ REGEL 5 — vite.config.js base URL:
   base: '/DaoYu-101/'
   Ohne das funktionieren Assets auf GitHub Pages nicht.
 
-REGEL 6 — PFLICHT-ABLAUF vor und nach jedem git push:
+REGEL 6 — i18n PFLICHT bei JEDER neuen Komponente:
+  Jede neue Komponente die sichtbaren Text enthält MUSS:
+  a) import { useTranslation } from 'react-i18next' einbinden
+  b) const { t } = useTranslation() im Body verwenden
+  c) JEDEN hartcodierten String durch t('schlüssel') ersetzen
+  d) Den Schlüssel in ALLEN 4 JSON-Dateien ergänzen (en, de, es, zh-TW)
+     Kein Schlüssel darf in einer Sprache fehlen — sonst fehlt die Übersetzung!
+
+  DATEN-DATEIEN (z.B. archipelagos.js, lessons/*.js):
+  → Können kein t() aufrufen — sie sind keine React-Komponenten!
+  → Lösung: i18n-Schlüssel als Referenz in der Datei speichern:
+    FALSCH:  { title: "Programming", description: "Learn to code" }
+    RICHTIG: { titleKey: "archipelagos.programming.title",
+               descriptionKey: "archipelagos.programming.description" }
+  → Die Komponente löst ihn auf: <h2>{t(item.titleKey)}</h2>
+
+  I18N-PRÜFUNG nach jeder neuen Komponente (vor Build):
+  → npm run dev → Language Switcher klicken
+  → Übersetzt sich der neue Inhalt mit? Wenn nein: sofort beheben.
+  → Browser-Konsole: keine "missing translation key" Warnungen?
+
+REGEL 7 — PFLICHT-ABLAUF vor und nach jedem git push:
 
   ── GITHUB-VERBINDUNG PRÜFEN (vor jedem Push) ─────────────
   0) git remote -v
@@ -545,60 +566,123 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
    src/components/WorldMap/ArchipelagoCard.jsx
    src/components/WorldMap/IslandNode.jsx
 
-2. archipelagos.js — 4 Archipelagos als default export:
+2. archipelagos.js — WICHTIG: Kein direkter Text, nur i18n-Schlüssel (Regel 6):
+   Texte wie "Programming" oder "Learn to code" gehören NICHT in diese Datei.
+   Stattdessen Schlüssel-Referenzen speichern:
    [
-     { id:"programming", title:"Programming", color:"#4F46E5", icon:"💻",
-       description:"Learn to code from scratch",
-       islands:[{id:"python-basics",title:"Python Basics",unlocked:true},{id:"web-dev",title:"Web Dev",unlocked:false}]},
-     { id:"languages", title:"Languages", color:"#059669", icon:"🌐",
-       description:"Speak the world",
-       islands:[{id:"english-beginners",title:"English Beginners",unlocked:true},{id:"spanish-a1",title:"Spanish A1",unlocked:false},{id:"chinese-basics",title:"Chinese Basics",unlocked:false}]},
-     { id:"finance", title:"Finance", color:"#D97706", icon:"💰",
-       description:"Master money skills",
-       islands:[{id:"budgeting-101",title:"Budgeting 101",unlocked:true},{id:"investing-simulator",title:"Investing Simulator",unlocked:false}]},
-     { id:"school-subjects", title:"School Subjects", color:"#DC2626", icon:"📚",
-       description:"Core school curriculum",
-       islands:[{id:"math-grade-5",title:"Math Grade 5",unlocked:true},{id:"science-basics",title:"Science Basics",unlocked:false}]}
+     { id:"programming", titleKey:"archipelagos.programming.title",
+       descriptionKey:"archipelagos.programming.description",
+       color:"#4F46E5", icon:"💻",
+       islands:[
+         {id:"python-basics", titleKey:"islands.pythonBasics", unlocked:true},
+         {id:"web-dev",       titleKey:"islands.webDev",       unlocked:false}
+       ]},
+     { id:"languages", titleKey:"archipelagos.languages.title",
+       descriptionKey:"archipelagos.languages.description",
+       color:"#059669", icon:"🌐",
+       islands:[
+         {id:"english-beginners", titleKey:"islands.englishBeginners", unlocked:true},
+         {id:"spanish-a1",        titleKey:"islands.spanishA1",        unlocked:false},
+         {id:"chinese-basics",    titleKey:"islands.chineseBasics",    unlocked:false}
+       ]},
+     { id:"finance", titleKey:"archipelagos.finance.title",
+       descriptionKey:"archipelagos.finance.description",
+       color:"#D97706", icon:"💰",
+       islands:[
+         {id:"budgeting-101",       titleKey:"islands.budgeting101",      unlocked:true},
+         {id:"investing-simulator", titleKey:"islands.investingSimulator", unlocked:false}
+       ]},
+     { id:"school-subjects", titleKey:"archipelagos.schoolSubjects.title",
+       descriptionKey:"archipelagos.schoolSubjects.description",
+       color:"#DC2626", icon:"📚",
+       islands:[
+         {id:"math-grade-5",   titleKey:"islands.mathGrade5",  unlocked:true},
+         {id:"science-basics", titleKey:"islands.scienceBasics",unlocked:false}
+       ]}
    ]
 
-3. ArchipelagoCard: Icon, Titel, Beschreibung, Island-Anzahl, Fortschrittsbalken (0%)
-   IslandNode: Titel, 🔒 wenn unlocked:false
-   WorldMap: CSS Grid mit allen 4 Karten
+3. i18n-Schlüssel in ALLEN 4 Sprachdateien ergänzen (en, de, es, zh-TW):
+   Fehlende Schlüssel → fehlende Übersetzung auf der Live-Seite!
+   Mindest-Struktur:
+   {
+     "archipelagos": {
+       "programming":    { "title":"Programming",    "description":"Learn to code from scratch" },
+       "languages":      { "title":"Languages",      "description":"Speak the world" },
+       "finance":        { "title":"Finance",         "description":"Master money skills" },
+       "schoolSubjects": { "title":"School Subjects", "description":"Core school curriculum" }
+     },
+     "islands": {
+       "pythonBasics":"Python Basics", "webDev":"Web Dev",
+       "englishBeginners":"English Beginners", "spanishA1":"Spanish A1", "chineseBasics":"Chinese Basics",
+       "budgeting101":"Budgeting 101", "investingSimulator":"Investing Simulator",
+       "mathGrade5":"Math Grade 5", "scienceBasics":"Science Basics"
+     },
+     "worldmap": {
+       "locked":"Locked", "unlocked":"Unlocked",
+       "islandCount":"{{count}} Islands", "progress":"Progress",
+       "startLearning":"Start Learning"
+     }
+   }
+   Alle anderen Sprachen: EXAKT dieselben Schlüssel, übersetzte Werte.
 
-4. Home.jsx ersetzt bisherigen Inhalt durch <WorldMap />
+4. ArchipelagoCard.jsx — i18n PFLICHT (Regel 6):
+   import { useTranslation } from 'react-i18next'
+   const { t } = useTranslation()
+   Texte über Schlüssel auflösen:
+   <h2>{t(archipelago.titleKey)}</h2>
+   <p>{t(archipelago.descriptionKey)}</p>
+   <span>{t('worldmap.islandCount', { count: archipelago.islands.length })}</span>
+
+5. IslandNode.jsx — i18n PFLICHT (Regel 6):
+   import { useTranslation } from 'react-i18next'
+   const { t } = useTranslation()
+   <span>{t(island.titleKey)}</span>
+   {!island.unlocked && <span>{t('worldmap.locked')}</span>}
+
+6. WorldMap.jsx — i18n PFLICHT falls eigene Texte vorhanden:
+   import { useTranslation } from 'react-i18next'
+   const { t } = useTranslation()
+
+7. Home.jsx ersetzt bisherigen Inhalt durch <WorldMap />
 
 ── PRÜFUNG VOR DEM PUSH ───────────────────────────────────────────────────
 
-5a. BUILD-PRÜFUNG:
+8a. BUILD-PRÜFUNG:
     npm run build → "✓ built"?
 
-5b. BROWSER-PRÜFUNG (lokal):
+8b. BROWSER-PRÜFUNG (lokal):
     npm run dev
     → http://localhost:5173/DaoYu-101/ öffnen
     ✅ 4 Archipelago-Karten in einem Grid sichtbar?
     ✅ Jede Karte zeigt Icon, Titel und Beschreibung?
-    ✅ Islands der Archipelagos sichtbar (gesperrt/offen)?
+    ✅ Islands der Archipelagos sichtbar (gesperrt/offen mit 🔒)?
+    ✅ Language Switcher auf DE klicken → Archipelago-Titel und
+       Beschreibungen wechseln zu Deutsch?
+    ✅ Language Switcher auf ZH klicken → Inhalte auf Chinesisch?
+    ✅ Zurück auf EN → alles korrekt auf Englisch?
+    ✅ Browser-Konsole: keine "missing translation key" Warnungen?
     ✅ Keine Konsolen-Fehler?
-    → Erst wenn alle ✅: weiter zum Push.
+    → Erst wenn ALLE ✅: weiter zum Push.
 
-5c. GITHUB-VERBINDUNG PRÜFEN:
+8c. GITHUB-VERBINDUNG PRÜFEN:
     git ls-remote origin
     → Kein Fehler? → Verbindung OK.
 
-6. git add .
-   git commit -m "feat: world map with 4 archipelagos, island nodes, pixel theme"
+9. git add .
+   git commit -m "feat: world map with 4 archipelagos, island nodes, full i18n support"
    git push origin main
 
 ── PRÜFUNG NACH DEM PUSH ──────────────────────────────────────────────────
 
-7a. GitHub Actions abwarten:
-    → https://github.com/7mi7miwork/DaoYu-101/actions → Workflow grün?
+10a. GitHub Actions abwarten:
+     → https://github.com/7mi7miwork/DaoYu-101/actions → Workflow grün?
 
-7b. LIVE-PRÜFUNG:
-    → https://7mi7miwork.github.io/DaoYu-101/ (Strg+Shift+R oder Inkognito)
-    ✅ 4 Archipelago-Karten auf der Startseite?
-    ✅ Layout korrekt (kein zerschossenes CSS)?
-    → Wenn ja: Schritt 4 ABGESCHLOSSEN ✓
+10b. LIVE-PRÜFUNG:
+     → https://7mi7miwork.github.io/DaoYu-101/#/ (Strg+Shift+R oder Inkognito)
+     ✅ 4 Archipelago-Karten auf der Startseite?
+     ✅ Layout korrekt (kein zerschossenes CSS)?
+     ✅ Language Switcher → Inhalte der Karten übersetzen sich auf der Live-Seite?
+     → Wenn ja: Schritt 4 ABGESCHLOSSEN ✓
 ```
 
 ---
@@ -669,6 +753,8 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ Island klicken → Lesson öffnet, Markdown-Inhalt sichtbar?
     ✅ Quiz starten → Fragen erscheinen nacheinander?
     ✅ Quiz abschließen → Score wird angezeigt?
+    ✅ Language Switcher → alle neuen Texte (Kurs-Titel, Button-Labels,
+       Quiz-Fragen-UI-Texte) übersetzen sich mit?
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
 
@@ -751,6 +837,7 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ Quiz abschließen → XP-Wert in der Navbar steigt?
     ✅ Nach erstem Quiz → Badge "First Steps" vergeben?
     ✅ XP bleibt nach Seiten-Refresh erhalten (localStorage)?
+    ✅ Language Switcher → XPBar-Label, Badge-Namen und Streak-Text übersetzen sich?
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
 
@@ -842,6 +929,7 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ StudentDashboard zeigt Begrüßung und Feature-Karten?
     ✅ Logout → zurück auf /login?
     ✅ Alle 5 Rollen-Dashboards erreichbar?
+    ✅ Language Switcher → Login-Formular, Dashboard-Texte, Rollen-Badge übersetzen sich?
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
 
@@ -900,8 +988,8 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
    export const supabase = createClient(supabaseUrl, supabaseKey)
 
 3. Erstelle .env.local (WIRD NICHT committet — in .gitignore prüfen):
-   VITE_SUPABASE_URL=https://xxxxx.supabase.co
-   VITE_SUPABASE_ANON_KEY=eyJxxxxxxxxx
+   VITE_SUPABASE_URL=https://hkvoicibgzgbhaatovli.supabase.co
+   VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhrdm9pY2liZ3pnYmhhYXRvdmxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA5OTcxNzMsImV4cCI6MjA4NjU3MzE3M30.FVsrIwQahPYJRUAWerfNxCarGSTCpMMJELtjzMjLf9I
 
 4. .github/workflows/deploy.yml — build-Step ergänzen:
    - run: npm run build

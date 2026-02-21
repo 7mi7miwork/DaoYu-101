@@ -1,9 +1,69 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { login, register } = useAuth();
   const [activeTab, setActiveTab] = useState('login');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    role: 'student'
+  });
+  const [error, setError] = useState('');
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (!formData.email || !formData.password) {
+      setError('Please fill in all fields');
+      return;
+    }
+
+    // Mock login - accept any email/password
+    const userData = {
+      id: Date.now().toString(),
+      email: formData.email,
+      name: formData.email.split('@')[0], // Use email prefix as name
+      role: 'student' // Default role for login
+    };
+
+    login(userData);
+    navigate('/dashboard');
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (!formData.name || !formData.email || !formData.password || !formData.role) {
+      setError('Please fill in all fields');
+      return;
+    }
+
+    // Mock registration
+    const userData = {
+      id: Date.now().toString(),
+      email: formData.email,
+      name: formData.name,
+      role: formData.role
+    };
+
+    register(userData);
+    navigate('/dashboard');
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--color-bg)' }}>
@@ -11,6 +71,13 @@ const Login = () => {
         <h1 className="text-3xl font-bold text-center mb-8" style={{ color: 'var(--color-text)', fontFamily: 'var(--font-display)' }}>
           {activeTab === 'login' ? t('login.signIn') : t('login.signUp')}
         </h1>
+
+        {/* Error Message */}
+        {error && (
+          <div className="mb-4 p-3 rounded-lg text-red-700 bg-red-100 border border-red-300">
+            {error}
+          </div>
+        )}
         
         <div className="flex mb-6">
           <button
@@ -36,13 +103,16 @@ const Login = () => {
         </div>
 
         {activeTab === 'login' ? (
-          <form className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text)' }}>
                 {t('login.email')}
               </label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
                 style={{ 
                   borderColor: 'var(--color-border)',
@@ -51,6 +121,7 @@ const Login = () => {
                   focusRingColor: 'var(--color-primary)'
                 }}
                 placeholder={t('login.emailPlaceholder')}
+                required
               />
             </div>
             <div>
@@ -59,6 +130,9 @@ const Login = () => {
               </label>
               <input
                 type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
                 style={{ 
                   borderColor: 'var(--color-border)',
@@ -67,6 +141,7 @@ const Login = () => {
                   focusRingColor: 'var(--color-primary)'
                 }}
                 placeholder={t('login.passwordPlaceholder')}
+                required
               />
             </div>
             <button
@@ -78,13 +153,16 @@ const Login = () => {
             </button>
           </form>
         ) : (
-          <form className="space-y-4">
+          <form onSubmit={handleRegister} className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text)' }}>
                 {t('login.name')}
               </label>
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
                 style={{ 
                   borderColor: 'var(--color-border)',
@@ -93,6 +171,7 @@ const Login = () => {
                   focusRingColor: 'var(--color-primary)'
                 }}
                 placeholder={t('login.namePlaceholder')}
+                required
               />
             </div>
             <div>
@@ -101,6 +180,9 @@ const Login = () => {
               </label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
                 style={{ 
                   borderColor: 'var(--color-border)',
@@ -109,6 +191,7 @@ const Login = () => {
                   focusRingColor: 'var(--color-primary)'
                 }}
                 placeholder={t('login.emailPlaceholder')}
+                required
               />
             </div>
             <div>
@@ -117,6 +200,9 @@ const Login = () => {
               </label>
               <input
                 type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
                 style={{ 
                   borderColor: 'var(--color-border)',
@@ -125,6 +211,7 @@ const Login = () => {
                   focusRingColor: 'var(--color-primary)'
                 }}
                 placeholder={t('login.passwordPlaceholder')}
+                required
               />
             </div>
             <div>
@@ -132,6 +219,9 @@ const Login = () => {
                 {t('login.role')}
               </label>
               <select
+                name="role"
+                value={formData.role}
+                onChange={handleInputChange}
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
                 style={{ 
                   borderColor: 'var(--color-border)',
@@ -139,6 +229,7 @@ const Login = () => {
                   color: 'var(--color-text)',
                   focusRingColor: 'var(--color-primary)'
                 }}
+                required
               >
                 <option value="student">{t('login.roles.student')}</option>
                 <option value="parent">{t('login.roles.parent')}</option>
