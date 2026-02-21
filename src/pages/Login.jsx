@@ -34,7 +34,7 @@ const Login = () => {
 
     try {
       await login(formData.email, formData.password);
-      navigate('/dashboard');
+      navigate('/profile');
     } catch (error) {
       setError(error.message || t('login.errors.loginFailed'));
     }
@@ -54,7 +54,7 @@ const Login = () => {
         name: formData.name,
         role: formData.role
       });
-      navigate('/dashboard');
+      navigate('/profile');
     } catch (error) {
       setError(error.message || t('login.errors.registrationFailed'));
     }

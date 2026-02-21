@@ -68,14 +68,24 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link
-                  to="/dashboard"
-                  className={`font-medium transition-colors ${isActive('/dashboard') ? 'text-primary' : ''}`}
+                  to="/store"
+                  className={`font-medium transition-colors ${isActive('/store') ? 'text-primary' : ''}`}
                   style={{ 
-                    color: isActive('/dashboard') ? 'var(--color-primary)' : 'var(--color-text)',
+                    color: isActive('/store') ? 'var(--color-primary)' : 'var(--color-text)',
                     fontFamily: 'var(--font-primary)'
                   }}
                 >
-                  {t('nav.dashboard')}
+                  {t('nav.store')}
+                </Link>
+                <Link
+                  to="/profile"
+                  className={`font-medium transition-colors ${isActive('/profile') ? 'text-primary' : ''}`}
+                  style={{ 
+                    color: isActive('/profile') ? 'var(--color-primary)' : 'var(--color-text)',
+                    fontFamily: 'var(--font-primary)'
+                  }}
+                >
+                  {t('nav.profile')}
                 </Link>
                 <button
                   onClick={handleLogout}
@@ -89,16 +99,28 @@ const Navbar = () => {
                 </button>
               </>
             ) : (
-              <Link
-                to="/login"
-                className={`font-medium transition-colors ${isActive('/login') ? 'text-primary' : ''}`}
-                style={{ 
-                  color: isActive('/login') ? 'var(--color-primary)' : 'var(--color-text)',
-                  fontFamily: 'var(--font-primary)'
-                }}
-              >
-                {t('nav.login')}
-              </Link>
+              <>
+                <Link
+                  to="/store"
+                  className={`font-medium transition-colors ${isActive('/store') ? 'text-primary' : ''}`}
+                  style={{ 
+                    color: isActive('/store') ? 'var(--color-primary)' : 'var(--color-text)',
+                    fontFamily: 'var(--font-primary)'
+                  }}
+                >
+                  {t('nav.store')}
+                </Link>
+                <Link
+                  to="/login"
+                  className={`font-medium transition-colors ${isActive('/login') ? 'text-primary' : ''}`}
+                  style={{ 
+                    color: isActive('/login') ? 'var(--color-primary)' : 'var(--color-text)',
+                    fontFamily: 'var(--font-primary)'
+                  }}
+                >
+                  {t('nav.login')}
+                </Link>
+              </>
             )}
           </div>
 

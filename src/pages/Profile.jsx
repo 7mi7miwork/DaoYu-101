@@ -18,6 +18,7 @@ const Profile = () => {
   
   const [profile, setProfile] = useState(null);
   const [completedLessons, setCompletedLessons] = useState([]);
+  const [purchasedLessons, setPurchasedLessons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
@@ -59,6 +60,27 @@ const Profile = () => {
           console.error('Error loading lessons:', lessonsError);
         } else {
           setCompletedLessons(lessonsData || []);
+        }
+
+        // Load purchased lessons
+        const { data: purchasesData, error: purchasesError } = await supabase
+          .from('purchases')
+          .select(`
+            *,
+            lessons (
+              id,
+              title,
+              description,
+              price
+            )
+          `)
+          .eq('user_id', user.id)
+          .order('date', { ascending: false });
+
+        if (purchasesError) {
+          console.error('Error loading purchases:', purchasesError);
+        } else {
+          setPurchasedLessons(purchasesData || []);
         }
       } catch (error) {
         console.error('Error loading profile data:', error);
@@ -307,6 +329,39 @@ const Profile = () => {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Purchased Lessons */}
+        <div className="rounded-lg shadow-lg p-6 mb-6" style={{ backgroundColor: 'var(--color-surface)' }}>
+          <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--color-text)' }}>
+            {t('profile.purchasedLessons')}
+          </h3>
+          {purchasedLessons.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {purchasedLessons.map((purchase) => (
+                <div key={purchase.id} className="p-4 rounded border" style={{ backgroundColor: 'var(--color-bg)', borderColor: 'var(--color-border)' }}>
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--color-text)' }}>
+                    {purchase.lessons.title}
+                  </h4>
+                  <p className="text-sm mb-2" style={{ color: 'var(--color-text-muted)' }}>
+                    {purchase.lessons.description}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                      {t('profile.purchasedOn')} {new Date(purchase.date).toLocaleDateString()}
+                    </span>
+                    <span className="font-medium" style={{ color: 'var(--color-primary)' }}>
+                      ${purchase.lessons.price}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8" style={{ color: 'var(--color-text-muted)' }}>
+              {t('profile.noPurchasedLessons')}
+            </div>
+          )}
         </div>
 
         {/* Completed Lessons */}

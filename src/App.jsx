@@ -10,6 +10,8 @@ import Courses from './pages/Courses';
 import Island from './pages/Island';
 import Lesson from './pages/Lesson';
 import Login from './pages/Login';
+import Store from './pages/Store';
+import ProtectedLesson from './pages/ProtectedLesson';
 import StudentDashboard from './pages/dashboards/StudentDashboard';
 import ParentDashboard from './pages/dashboards/ParentDashboard';
 import TeacherDashboard from './pages/dashboards/TeacherDashboard';
@@ -36,6 +38,8 @@ function App() {
                   <Route path="/courses/:archipelagoId" element={<Island />} />
                   <Route path="/lesson/:lessonId" element={<Lesson />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/store" element={<Store />} />
+                  <Route path="/lesson/:id" element={<ProtectedLesson />} />
                   
                   {/* Profile and public routes */}
                   <Route path="/profile" element={

@@ -62,7 +62,50 @@
       "teacher": "Lehrer",
       "school": "Schule",
       "admin": "Administrator"
+    },
+    "errors": {
+      "fillAllFields": "Bitte füllen Sie alle Felder aus",
+      "loginFailed": "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.",
+      "registrationFailed": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut."
     }
+  },
+  "store": {
+    "title": "Lektionen-Shop",
+    "loginRequired": "Bitte melden Sie sich an, um Lektionen zu kaufen.",
+    "noLessons": "Derzeit keine Lektionen verfügbar.",
+    "purchased": "Gekauft",
+    "loginToPurchase": "Anmelden zum Kaufen",
+    "purchase": "Kaufen"
+  },
+  "protectedLesson": {
+    "accessRequired": "Zugriff erforderlich",
+    "purchaseRequired": "Sie müssen diese Lektion kaufen, um darauf zuzugreifen.",
+    "goToStore": "Zum Shop",
+    "noContent": "Kein Inhalt für diese Lektion verfügbar."
+  },
+  "profile": {
+    "title": "Mein Profil",
+    "subtitle": "Verwalten Sie Ihre Kontoeinstellungen und verfolgen Sie Ihren Fortschritt",
+    "totalXP": "Gesamt-XP",
+    "completedLessons": "Abgeschlossene Lektionen",
+    "purchasedLessons": "Gekaufte Lektionen",
+    "badges": "Abzeichen",
+    "settings": "Einstellungen",
+    "language": "Sprache",
+    "theme": "Design",
+    "email": "E-Mail",
+    "memberSince": "Mitglied seit",
+    "logout": "Abmelden",
+    "noBadges": "Noch keine Abzeichen verdient. Weiter lernen!",
+    "noCompletedLessons": "Noch keine Lektionen abgeschlossen. Beginnen Sie Ihre Lernreise!",
+    "noPurchasedLessons": "Noch keine Lektionen gekauft. Durchstöbern Sie unseren Shop!",
+    "browseStore": "Durchstöbern Sie unseren Shop, um zu beginnen",
+    "goToStore": "Zum Shop",
+    "purchasedOn": "Gekauft am",
+    "certificate": "Zertifikat",
+    "certificateDescription": "Laden Sie ein Abschlusszertifikat für Ihre Erfolge herunter.",
+    "certificateCourseName": "Dao-Yu-101 Lernprogramm",
+    "downloadCertificate": "Zertifikat herunterladen"
   },
   "notFound": {
     "title": "Seite nicht gefunden",
@@ -121,65 +164,6 @@
       "mathGrade5": "Mathe Klasse 5",
       "scienceBasics": "Naturwissenschaften"
     }
-  },
-  "profile": {
-    "title": "Mein Profil",
-    "subtitle": "Verwalten Sie Ihre Kontoeinstellungen und verfolgen Sie Ihren Fortschritt",
-    "totalXP": "Gesamt-XP",
-    "completedLessons": "Abgeschlossene Lektionen",
-    "badges": "Abzeichen",
-    "settings": "Einstellungen",
-    "language": "Sprache",
-    "theme": "Design",
-    "noBadges": "Noch keine Abzeichen verdient. Weiter lernen!",
-    "noCompletedLessons": "Noch keine Lektionen abgeschlossen. Beginnen Sie Ihre Lernreise!",
-    "certificate": "Zertifikat",
-    "certificateDescription": "Laden Sie ein Abschlusszertifikat für Ihre Erfolge herunter.",
-    "certificateCourseName": "Dao-Yu-101 Lernprogramm",
-    "downloadCertificate": "Zertifikat herunterladen"
-  },
-  "leaderboard": {
-    "title": "Globale Bestenliste",
-    "subtitle": "Top-Lerner aus der ganzen Welt",
-    "rank": "Rang",
-    "name": "Name",
-    "level": "Level",
-    "xp": "XP",
-    "streak": "Serie",
-    "days": "Tage",
-    "badges": "Abzeichen",
-    "noData": "Keine Daten verfügbar",
-    "noDataDescription": "Beginnen Sie zu lernen, um auf der Bestenliste zu erscheinen!",
-    "updateInfo": "Bestenliste wird stündlich aktualisiert"
-  },
-  "certificate": {
-    "title": "Abschlusszertifikat",
-    "subtitle": "Dao-Yu-101 Lernplattform",
-    "thisIsToCertify": "Hiermit wird bescheinigt, dass",
-    "hasCompleted": "erfolgreich das Lernprogramm abgeschlossen hat",
-    "totalXP": "Gesamt-XP",
-    "level": "Level",
-    "completedLessons": "Abgeschlossene Lektionen",
-    "badges": "Abzeichen",
-    "earnedBadges": "Verdiente Abzeichen",
-    "certificateId": "Zertifikats-ID",
-    "issueDate": "Ausstellungsdatum",
-    "memberSince": "Mitglied seit",
-    "verificationNote": "Dieses Zertifikat kann online mit der Zertifikats-ID überprüft werden",
-    "verificationInfo": "Dies ist ein offizielles Zertifikat der Dao-Yu-101 Lernplattform",
-    "download": "Zertifikat herunterladen",
-    "backToHome": "Zurück zur Startseite",
-    "error": "Zertifikatsfehler",
-    "noId": "Keine Zertifikats-ID angegeben",
-    "invalidId": "Ungültiges Zertifikats-ID-Format",
-    "expired": "Zertifikat ist abgelaufen",
-    "profileNotFound": "Benutzerprofil nicht gefunden",
-    "loadError": "Zertifikatsdaten konnten nicht geladen werden"
-  },
-  "badges": {
-    "firststeps": "Erste Schritte",
-    "quizmaster": "Quiz-Meister",
-    "onfire": "In Flammen"
   },
   "themes": {
     "archipelago": "Archipel",

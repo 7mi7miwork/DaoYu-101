@@ -62,7 +62,50 @@
       "teacher": "Teacher",
       "school": "School",
       "admin": "Admin"
+    },
+    "errors": {
+      "fillAllFields": "Please fill in all fields",
+      "loginFailed": "Login failed. Please check your credentials.",
+      "registrationFailed": "Registration failed. Please try again."
     }
+  },
+  "store": {
+    "title": "Lesson Store",
+    "loginRequired": "Please log in to purchase lessons.",
+    "noLessons": "No lessons available at the moment.",
+    "purchased": "Purchased",
+    "loginToPurchase": "Login to Purchase",
+    "purchase": "Purchase"
+  },
+  "protectedLesson": {
+    "accessRequired": "Access Required",
+    "purchaseRequired": "You need to purchase this lesson to access it.",
+    "goToStore": "Go to Store",
+    "noContent": "No content available for this lesson."
+  },
+  "profile": {
+    "title": "My Profile",
+    "subtitle": "Manage your account settings and track your progress",
+    "totalXP": "Total XP",
+    "completedLessons": "Completed Lessons",
+    "purchasedLessons": "Purchased Lessons",
+    "badges": "Badges",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "email": "Email",
+    "memberSince": "Member Since",
+    "logout": "Logout",
+    "noBadges": "No badges earned yet. Keep learning!",
+    "noCompletedLessons": "No lessons completed yet. Start your learning journey!",
+    "noPurchasedLessons": "No lessons purchased yet. Browse our store!",
+    "browseStore": "Browse our store to get started",
+    "goToStore": "Go to Store",
+    "purchasedOn": "Purchased on",
+    "certificate": "Certificate",
+    "certificateDescription": "Download a certificate of completion for your achievements.",
+    "certificateCourseName": "Dao-Yu-101 Learning Program",
+    "downloadCertificate": "Download Certificate"
   },
   "notFound": {
     "title": "Page Not Found",
@@ -121,22 +164,6 @@
       "mathGrade5": "Math Grade 5",
       "scienceBasics": "Science Basics"
     }
-  },
-  "profile": {
-    "title": "My Profile",
-    "subtitle": "Manage your account settings and track your progress",
-    "totalXP": "Total XP",
-    "completedLessons": "Completed Lessons",
-    "badges": "Badges",
-    "settings": "Settings",
-    "language": "Language",
-    "theme": "Theme",
-    "noBadges": "No badges earned yet. Keep learning!",
-    "noCompletedLessons": "No lessons completed yet. Start your learning journey!",
-    "certificate": "Certificate",
-    "certificateDescription": "Download a certificate of completion for your achievements.",
-    "certificateCourseName": "Dao-Yu-101 Learning Program",
-    "downloadCertificate": "Download Certificate"
   },
   "leaderboard": {
     "title": "Global Leaderboard",
