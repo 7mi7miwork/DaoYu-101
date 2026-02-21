@@ -109,9 +109,9 @@ export const GamificationProvider = ({ children }) => {
   };
 
   // Add quiz result to history
-  const addQuizResult = (lessonId, score, totalQuestions) => {
+  const addQuizResult = (lessonId, score, totalQuestions, lessonXp = 50) => {
     const percentage = Math.round((score / totalQuestions) * 100);
-    const xpEarned = percentage >= 80 ? 50 : Math.round(50 * percentage / 100);
+    const xpEarned = percentage >= 80 ? lessonXp : Math.round(lessonXp * percentage / 100);
     
     setState(prev => {
       const newXP = prev.xp + xpEarned;

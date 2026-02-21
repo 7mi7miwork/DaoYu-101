@@ -25,9 +25,9 @@ const Quiz = ({ lesson }) => {
   React.useEffect(() => {
     if (showResults && Object.keys(answers).length > 0) {
       const score = calculateScore();
-      addQuizResult(lesson.id, score, lesson.quiz.questions.length);
+      addQuizResult(lesson.id, score, lesson.quiz.questions.length, lesson.xp);
     }
-  }, [showResults, answers, lesson.id, lesson.quiz.questions.length, addQuizResult, calculateScore]);
+  }, [showResults, answers, lesson.id, lesson.quiz.questions.length, lesson.xp, addQuizResult, calculateScore]);
 
   const submitAnswer = (answer) => {
     setAnswers({ ...answers, [currentQuestion.id]: answer });
