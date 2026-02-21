@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import archipelagos from '../data/archipelagos';
 
 const Courses = () => {
   const { t } = useTranslation();
@@ -13,20 +15,32 @@ const Courses = () => {
           {t('courses.description')}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-lg border" style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}>
-            <h3 className="text-2xl font-semibold mb-4" style={{ color: 'var(--color-primary)' }}>💻 {t('courses.archipelagos.programming.title')}</h3>
-            <p className="mb-4" style={{ color: 'var(--color-text)' }}>{t('courses.archipelagos.programming.description')}</p>
-            <button className="px-4 py-2 rounded" style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}>
-              {t('courses.explore')}
-            </button>
-          </div>
-          <div className="p-6 rounded-lg border" style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}>
-            <h3 className="text-2xl font-semibold mb-4" style={{ color: 'var(--color-primary)' }}>🌐 {t('courses.archipelagos.languages.title')}</h3>
-            <p className="mb-4" style={{ color: 'var(--color-text)' }}>{t('courses.archipelagos.languages.description')}</p>
-            <button className="px-4 py-2 rounded" style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}>
-              {t('courses.explore')}
-            </button>
-          </div>
+          {archipelagos.map((archipelago) => (
+            <div 
+              key={archipelago.id}
+              className="p-6 rounded-lg border hover:shadow-lg transition-shadow"
+              style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}
+            >
+              <h3 className="text-2xl font-semibold mb-4" style={{ color: 'var(--color-primary)' }}>
+                {archipelago.icon} {t(archipelago.titleKey)}
+              </h3>
+              <p className="mb-4" style={{ color: 'var(--color-text)' }}>
+                {t(archipelago.descriptionKey)}
+              </p>
+              <div className="flex justify-between items-center">
+                <span className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                  {archipelago.islands.length} islands
+                </span>
+                <Link 
+                  to={`/courses/${archipelago.id}`}
+                  className="px-4 py-2 rounded text-white hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: archipelago.color }}
+                >
+                  {t('courses.explore')}
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

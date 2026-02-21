@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
+import Island from './pages/Island';
+import Lesson from './pages/Lesson';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import './index.css';
@@ -18,6 +20,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/courses" element={<Courses />} />
+              <Route path="/courses/:archipelagoId" element={<Island />} />
+              <Route path="/lesson/:lessonId" element={<Lesson />} />
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
