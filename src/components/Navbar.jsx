@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
+import XPBar from './XPBar';
+import StreakCounter from './StreakCounter';
 
 const Navbar = () => {
   const { theme, changeTheme } = useTheme();
@@ -22,6 +24,12 @@ const Navbar = () => {
           >
             🏝️ Dao-Yu-101
           </Link>
+
+          {/* Gamification Elements */}
+          <div className="hidden md:flex items-center space-x-4">
+            <XPBar />
+            <StreakCounter size="small" />
+          </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">

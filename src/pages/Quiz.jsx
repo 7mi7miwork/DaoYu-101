@@ -1,13 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useGamification } from '../hooks/useGamification';
 
 const Quiz = ({ lesson }) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [answers, setAnswers] = React.useState({});
   const [showResults, setShowResults] = React.useState(false);
+  const { addQuizResult } = useGamification();
 
   const currentQuestion = lesson.quiz.questions[currentIndex];
   const isLastQuestion = currentIndex === lesson.quiz.questions.length - 1;
+
+  const calculateScore = React.useCallback(() => {
+    let correct = 0;
+    lesson.quiz.questions.forEach(q => {
+      if (answers[q.id] === q.correct) {
+        correct++;
+      }
+    });
+    return correct;
+  }, [answers, lesson.quiz.questions]);
+
+  // Award XP when quiz is completed
+  React.useEffect(() => {
+    if (showResults && Object.keys(answers).length > 0) {
+      const score = calculateScore();
+      addQuizResult(lesson.id, score, lesson.quiz.questions.length);
+    }
+  }, [showResults, answers, lesson.id, lesson.quiz.questions.length, addQuizResult, calculateScore]);
 
   const submitAnswer = (answer) => {
     setAnswers({ ...answers, [currentQuestion.id]: answer });
@@ -17,16 +37,6 @@ const Quiz = ({ lesson }) => {
     } else {
       setCurrentIndex(currentIndex + 1);
     }
-  };
-
-  const calculateScore = () => {
-    let correct = 0;
-    lesson.quiz.questions.forEach(q => {
-      if (answers[q.id] === q.correct) {
-        correct++;
-      }
-    });
-    return correct;
   };
 
   const reset = () => {
