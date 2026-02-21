@@ -9,12 +9,65 @@
   },
   "home": {
     "title": "歡迎來到 Dao-Yu-101",
-    "subtitle": "您的個人化學習之旅從這裡開始",
-    "startLearning": "開始學習"
+    "subtitle": "您的學習冒險從這裡開始。探索知識群島！",
+    "archipelagos": {
+      "programming": {
+        "title": "程式設計",
+        "description": "從零開始學習寫程式"
+      },
+      "languages": {
+        "title": "語言",
+        "description": "說遍全世界"
+      },
+      "finance": {
+        "title": "金融",
+        "description": "掌握金錢技能"
+      },
+      "schoolSubjects": {
+        "title": "學校科目",
+        "description": "核心課程"
+      }
+    }
   },
   "courses": {
     "title": "課程",
-    "searchPlaceholder": "搜尋課程..."
+    "description": "瀏覽我們的學習群島收藏。",
+    "explore": "探索",
+    "archipelagos": {
+      "programming": {
+        "title": "程式設計",
+        "description": "學習程式語言和概念"
+      },
+      "languages": {
+        "title": "語言",
+        "description": "掌握新語言和文化"
+      }
+    }
+  },
+  "login": {
+    "signIn": "登入",
+    "signUp": "註冊",
+    "loginTab": "登入",
+    "registerTab": "註冊",
+    "email": "電子郵件",
+    "emailPlaceholder": "您的@email.com",
+    "password": "密碼",
+    "passwordPlaceholder": "•••••••",
+    "name": "姓名",
+    "namePlaceholder": "您的姓名",
+    "role": "角色",
+    "roles": {
+      "student": "學生",
+      "parent": "家長",
+      "teacher": "老師",
+      "school": "學校",
+      "admin": "管理員"
+    }
+  },
+  "notFound": {
+    "title": "頁面未找到",
+    "description": "糟糕！您要找的頁面不存在。",
+    "goHome": "回到首頁"
   },
   "common": {
     "loading": "載入中...",

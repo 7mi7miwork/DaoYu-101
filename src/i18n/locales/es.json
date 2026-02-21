@@ -9,12 +9,65 @@
   },
   "home": {
     "title": "Bienvenido a Dao-Yu-101",
-    "subtitle": "Tu viaje de aprendizaje personalizado comienza aquí",
-    "startLearning": "Comenzar a aprender"
+    "subtitle": "Tu aventura de aprendizaje comienza aquí. ¡Explora archipiélagos de conocimiento!",
+    "archipelagos": {
+      "programming": {
+        "title": "Programación",
+        "description": "Aprende a programar desde cero"
+      },
+      "languages": {
+        "title": "Idiomas",
+        "description": "Habla el mundo"
+      },
+      "finance": {
+        "title": "Finanzas",
+        "description": "Domina las habilidades con el dinero"
+      },
+      "schoolSubjects": {
+        "title": "Asignaturas escolares",
+        "description": "Currículo básico"
+      }
+    }
   },
   "courses": {
     "title": "Cursos",
-    "searchPlaceholder": "Buscar cursos..."
+    "description": "Explora nuestra colección de archipiélagos de aprendizaje.",
+    "explore": "Explorar",
+    "archipelagos": {
+      "programming": {
+        "title": "Programación",
+        "description": "Aprende lenguajes y conceptos de programación"
+      },
+      "languages": {
+        "title": "Idiomas",
+        "description": "Domina nuevos idiomas y culturas"
+      }
+    }
+  },
+  "login": {
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "loginTab": "Iniciar sesión",
+    "registerTab": "Registrarse",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu@correo.com",
+    "password": "Contraseña",
+    "passwordPlaceholder": "•••••••",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "role": "Rol",
+    "roles": {
+      "student": "Estudiante",
+      "parent": "Padre",
+      "teacher": "Profesor",
+      "school": "Escuela",
+      "admin": "Administrador"
+    }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "¡Ups! La página que buscas no existe.",
+    "goHome": "Ir al inicio"
   },
   "common": {
     "loading": "Cargando...",

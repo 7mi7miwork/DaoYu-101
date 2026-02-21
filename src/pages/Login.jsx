@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('login');
 
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="w-full max-w-md p-8 rounded-lg border" style={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)' }}>
         <h1 className="text-3xl font-bold text-center mb-8" style={{ color: 'var(--color-text)', fontFamily: 'var(--font-display)' }}>
-          {activeTab === 'login' ? 'Sign In' : 'Sign Up'}
+          {activeTab === 'login' ? t('login.signIn') : t('login.signUp')}
         </h1>
         
         <div className="flex mb-6">
@@ -19,7 +21,7 @@ const Login = () => {
             }}
             onClick={() => setActiveTab('login')}
           >
-            Login
+            {t('login.loginTab')}
           </button>
           <button
             className={`flex-1 py-2 px-4 ${activeTab === 'register' ? 'border-b-2' : ''}`}
@@ -29,7 +31,7 @@ const Login = () => {
             }}
             onClick={() => setActiveTab('register')}
           >
-            Register
+            {t('login.registerTab')}
           </button>
         </div>
 
@@ -37,7 +39,7 @@ const Login = () => {
           <form className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text)' }}>
-                Email
+                {t('login.email')}
               </label>
               <input
                 type="email"
@@ -48,12 +50,12 @@ const Login = () => {
                   color: 'var(--color-text)',
                   focusRingColor: 'var(--color-primary)'
                 }}
-                placeholder="your@email.com"
+                placeholder={t('login.emailPlaceholder')}
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text)' }}>
-                Password
+                {t('login.password')}
               </label>
               <input
                 type="password"
@@ -64,7 +66,7 @@ const Login = () => {
                   color: 'var(--color-text)',
                   focusRingColor: 'var(--color-primary)'
                 }}
-                placeholder="••••••••"
+                placeholder={t('login.passwordPlaceholder')}
               />
             </div>
             <button
@@ -72,14 +74,14 @@ const Login = () => {
               className="w-full py-2 px-4 rounded-md font-medium"
               style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}
             >
-              Sign In
+              {t('login.signIn')}
             </button>
           </form>
         ) : (
           <form className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text)' }}>
-                Name
+                {t('login.name')}
               </label>
               <input
                 type="text"
@@ -90,12 +92,12 @@ const Login = () => {
                   color: 'var(--color-text)',
                   focusRingColor: 'var(--color-primary)'
                 }}
-                placeholder="Your name"
+                placeholder={t('login.namePlaceholder')}
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text)' }}>
-                Email
+                {t('login.email')}
               </label>
               <input
                 type="email"
@@ -106,12 +108,12 @@ const Login = () => {
                   color: 'var(--color-text)',
                   focusRingColor: 'var(--color-primary)'
                 }}
-                placeholder="your@email.com"
+                placeholder={t('login.emailPlaceholder')}
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text)' }}>
-                Password
+                {t('login.password')}
               </label>
               <input
                 type="password"
@@ -122,12 +124,12 @@ const Login = () => {
                   color: 'var(--color-text)',
                   focusRingColor: 'var(--color-primary)'
                 }}
-                placeholder="••••••••"
+                placeholder={t('login.passwordPlaceholder')}
               />
             </div>
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: 'var(--color-text)' }}>
-                Role
+                {t('login.role')}
               </label>
               <select
                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
@@ -138,11 +140,11 @@ const Login = () => {
                   focusRingColor: 'var(--color-primary)'
                 }}
               >
-                <option value="student">Student</option>
-                <option value="parent">Parent</option>
-                <option value="teacher">Teacher</option>
-                <option value="school">School</option>
-                <option value="admin">Admin</option>
+                <option value="student">{t('login.roles.student')}</option>
+                <option value="parent">{t('login.roles.parent')}</option>
+                <option value="teacher">{t('login.roles.teacher')}</option>
+                <option value="school">{t('login.roles.school')}</option>
+                <option value="admin">{t('login.roles.admin')}</option>
               </select>
             </div>
             <button
@@ -150,7 +152,7 @@ const Login = () => {
               className="w-full py-2 px-4 rounded-md font-medium"
               style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}
             >
-              Sign Up
+              {t('login.signUp')}
             </button>
           </form>
         )}

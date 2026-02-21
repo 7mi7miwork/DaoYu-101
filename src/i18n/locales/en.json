@@ -9,12 +9,65 @@
   },
   "home": {
     "title": "Welcome to Dao-Yu-101",
-    "subtitle": "Your personalized learning journey starts here",
-    "startLearning": "Start Learning"
+    "subtitle": "Your learning adventure starts here. Explore archipelagos of knowledge!",
+    "archipelagos": {
+      "programming": {
+        "title": "Programming",
+        "description": "Learn to code from scratch"
+      },
+      "languages": {
+        "title": "Languages",
+        "description": "Speak the world"
+      },
+      "finance": {
+        "title": "Finance",
+        "description": "Master money skills"
+      },
+      "schoolSubjects": {
+        "title": "School Subjects",
+        "description": "Core curriculum"
+      }
+    }
   },
   "courses": {
     "title": "Courses",
-    "searchPlaceholder": "Search courses..."
+    "description": "Browse our collection of learning archipelagos.",
+    "explore": "Explore",
+    "archipelagos": {
+      "programming": {
+        "title": "Programming",
+        "description": "Learn programming languages and concepts"
+      },
+      "languages": {
+        "title": "Languages",
+        "description": "Master new languages and cultures"
+      }
+    }
+  },
+  "login": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "loginTab": "Login",
+    "registerTab": "Register",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "••••••••",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "role": "Role",
+    "roles": {
+      "student": "Student",
+      "parent": "Parent",
+      "teacher": "Teacher",
+      "school": "School",
+      "admin": "Admin"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "Oops! The page you're looking for doesn't exist.",
+    "goHome": "Go Home"
   },
   "common": {
     "loading": "Loading...",
