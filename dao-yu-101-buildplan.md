@@ -29,9 +29,62 @@
 
 ---
 
-## 🔄 Repo komplett zurücksetzen (einmalig bei Neustart)
+## 🔌 GitHub-Verbindung herstellen (einmalig beim ersten Start)
+
+Bevor irgendetwas gepusht werden kann, muss die Verbindung zu GitHub stehen.
+Diese Schritte einmalig im Arbeitsverzeichnis ausführen:
 
 ```bash
+# 1. Sicherstellen dass wir im richtigen Verzeichnis sind
+cd D:\Codes\Windsurf\Dao-Yu-101
+
+# 2. Git initialisieren (falls noch nicht geschehen)
+git init
+
+# 3. Verbindung zu GitHub herstellen
+#    (Falls remote schon existiert, wird der Fehler ignoriert)
+git remote add origin https://github.com/7mi7miwork/DaoYu-101.git
+
+# 4. Verbindung testen — dieser Befehl muss ohne Fehler durchlaufen:
+git remote -v
+#    Erwartete Ausgabe:
+#    origin  https://github.com/7mi7miwork/DaoYu-101.git (fetch)
+#    origin  https://github.com/7mi7miwork/DaoYu-101.git (push)
+
+# 5. GitHub-Erreichbarkeit testen:
+git ls-remote origin
+#    → Gibt Refs aus? Verbindung OK ✓
+#    → "Authentication failed"? → GitHub-Credentials prüfen (siehe unten)
+#    → Timeout / kein Output? → Netzwerk / Firewall prüfen
+
+# 6. Git-Identität setzen (einmalig pro Rechner):
+git config user.name "7mi7miwork"
+git config user.email "DEINE-EMAIL@beispiel.com"
+```
+
+### 🔑 Falls Authentifizierung fehlschlägt
+
+GitHub akzeptiert kein Passwort mehr — nur noch **Personal Access Token (PAT)**:
+
+1. GitHub → **Settings → Developer settings → Personal access tokens → Tokens (classic)**
+2. **Generate new token** → Scope: `repo` ankreuzen → Token kopieren
+3. Token als Credential speichern (Windows Credential Manager):
+   ```bash
+   git config --global credential.helper manager
+   ```
+   Beim nächsten Push wird nach Benutzername + Token gefragt — danach wird es gespeichert.
+
+---
+
+## 🔄 Repo komplett zurücksetzen (einmalig bei Neustart)
+
+Erst ausführen, **nachdem** die GitHub-Verbindung (siehe oben) funktioniert:
+
+```bash
+# Verbindung nochmal kurz bestätigen:
+git ls-remote origin
+
+# Dann Reset:
 git checkout --orphan temp
 git add -A
 git commit -m "reset"
@@ -94,6 +147,17 @@ REGEL 5 — vite.config.js base URL:
   Ohne das funktionieren Assets auf GitHub Pages nicht.
 
 REGEL 6 — PFLICHT-ABLAUF vor und nach jedem git push:
+
+  ── GITHUB-VERBINDUNG PRÜFEN (vor jedem Push) ─────────────
+  0) git remote -v
+     → Zeigt origin mit https://github.com/7mi7miwork/DaoYu-101.git?
+     → Falls nicht: git remote add origin https://github.com/7mi7miwork/DaoYu-101.git
+
+     git ls-remote origin
+     → Gibt Refs aus (keine Fehlermeldung)? → Verbindung OK, weiter zu a)
+     → Fehler "Authentication failed"? → PAT-Token prüfen / neu erstellen
+     → Timeout / kein Output? → Netzwerk / Firewall prüfen
+     → Erst wenn Verbindung steht: weiter.
 
   ── VOR DEM PUSH ──────────────────────────────────────────
   a) npm run build
@@ -232,6 +296,13 @@ SCHRITT FÜR SCHRITT:
     ✅ Blaue Seite mit "🏝️ Dao-Yu-101" sichtbar?
     → Erst wenn beide ✅: weiter zum Push.
 
+9c. GITHUB-VERBINDUNG PRÜFEN:
+    git remote -v
+    → origin muss auf https://github.com/7mi7miwork/DaoYu-101.git zeigen.
+    git ls-remote origin
+    → Muss Refs ausgeben — kein Fehler.
+    → Bei Fehler: Verbindung herstellen (siehe Abschnitt "GitHub-Verbindung herstellen").
+
 10. git add .
     git commit -m "feat: initialize React + Vite + Tailwind + GitHub Actions deploy"
     git push origin main
@@ -342,6 +413,10 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
 
+8c. GITHUB-VERBINDUNG PRÜFEN:
+    git ls-remote origin
+    → Kein Fehler? → Verbindung OK.
+
 9. git add .
    git commit -m "feat: HashRouter, app shell, Navbar, Footer, 3 themes"
    git push origin main
@@ -427,6 +502,10 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
 
+7c. GITHUB-VERBINDUNG PRÜFEN:
+    git ls-remote origin
+    → Kein Fehler? → Verbindung OK.
+
 8. git add .
    git commit -m "feat: i18n system with EN/DE/ES/ZH-TW, language switcher in navbar"
    git push origin main
@@ -501,6 +580,10 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ Islands der Archipelagos sichtbar (gesperrt/offen)?
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
+
+5c. GITHUB-VERBINDUNG PRÜFEN:
+    git ls-remote origin
+    → Kein Fehler? → Verbindung OK.
 
 6. git add .
    git commit -m "feat: world map with 4 archipelagos, island nodes, pixel theme"
@@ -589,6 +672,10 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
 
+6c. GITHUB-VERBINDUNG PRÜFEN:
+    git ls-remote origin
+    → Kein Fehler? → Verbindung OK.
+
 7. git add .
    git commit -m "feat: course browser, markdown lesson viewer, quiz engine"
    git push origin main
@@ -666,6 +753,10 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ XP bleibt nach Seiten-Refresh erhalten (localStorage)?
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
+
+7c. GITHUB-VERBINDUNG PRÜFEN:
+    git ls-remote origin
+    → Kein Fehler? → Verbindung OK.
 
 8. git add .
    git commit -m "feat: gamification - XP, levels, badges, streaks, localStorage"
@@ -753,6 +844,10 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ Alle 5 Rollen-Dashboards erreichbar?
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
+
+7c. GITHUB-VERBINDUNG PRÜFEN:
+    git ls-remote origin
+    → Kein Fehler? → Verbindung OK.
 
 8. git add .
    git commit -m "feat: auth UI, role dashboards, mock auth, protected routes"
@@ -859,6 +954,13 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ Keine Konsolen-Fehler (insb. keine CORS- oder API-Key-Fehler)?
     → Erst wenn alle ✅: weiter zum Push.
 
+7c. GITHUB-VERBINDUNG PRÜFEN:
+    git ls-remote origin
+    → Kein Fehler? → Verbindung OK.
+    git status
+    → .env.local erscheint NICHT in "Changes to be committed"?
+    → Wenn doch sichtbar: sofort stoppen! .gitignore anpassen, dann erneut prüfen.
+
 8. git add .
    git commit -m "feat: Supabase auth, user profiles, progress tracking in DB"
    git push origin main
@@ -939,6 +1041,10 @@ Halte ALLE KRITISCHEN REGELN aus dem Buildplan ein.
     ✅ /leaderboard öffnen → User in Tabelle sichtbar?
     ✅ Keine Konsolen-Fehler?
     → Erst wenn alle ✅: weiter zum Push.
+
+7c. GITHUB-VERBINDUNG PRÜFEN:
+    git ls-remote origin
+    → Kein Fehler? → Verbindung OK.
 
 8. git add .
    git commit -m "feat: profile page, PDF certificates, global leaderboard"
